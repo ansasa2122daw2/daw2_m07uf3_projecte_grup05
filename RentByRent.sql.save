@@ -1,0 +1,6 @@
+use mysql;
+create user 'admin'@'localhost' identified by "Fjeclot22@";
+create database RentByRent;
+use RentByRent;
+grant all privileges on RentByRent
+.* to 'admin'@'localhost';
