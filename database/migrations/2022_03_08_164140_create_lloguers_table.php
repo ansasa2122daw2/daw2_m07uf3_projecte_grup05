@@ -25,6 +25,7 @@ class CreateLloguersTable extends Migration
             $table->integer('preu_dia');
             $table->string('prestec_retorn_disponible');
             $table->string('tipus_asseguranca');
+            $table->primary(['dni_client','matricula_auto']);
         });
     }
 
