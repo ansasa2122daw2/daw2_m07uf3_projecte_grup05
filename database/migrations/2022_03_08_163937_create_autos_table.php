@@ -15,6 +15,7 @@ class CreateAutosTable extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->primary('matricula_auto');
+            $table->string('matricula_auto');
             $table->string('marca');
             $table->string('model');
             $table->string('color');
