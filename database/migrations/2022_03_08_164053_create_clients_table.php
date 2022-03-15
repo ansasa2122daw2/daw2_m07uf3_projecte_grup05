@@ -21,11 +21,11 @@ class CreateClientsTable extends Migration
             $table->integer('num_targeta');
             $table->integer('edat');
             $table->integer('telefon');
-            $table->string('tipus_targeta');
+            $table->enum('tipus_targeta',["debit", "credit"]);
             $table->string('adreca');
             $table->string('ciutat');
             $table->string('pais');
-            $table->integer('num_conduccio');
+            $table->integer('num_permis_conduccio');
             $table->string('email');
             $table->integer('punts_permis');
         });

@@ -19,7 +19,7 @@ class Clients extends Model
         'adreca',
         'ciutat',
         'pais',
-        'num_conduccio',
+        'num_permis_conduccio',
         'email',
         'punts_permis'
 

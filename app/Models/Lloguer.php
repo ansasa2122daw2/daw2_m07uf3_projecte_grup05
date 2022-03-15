@@ -11,8 +11,8 @@ class Lloguer extends Model
     protected $fillable = [
         'dni_client',
         'matricula_auto',
-        'datos_prestec',
-        'datos_devolucion',
+        'data_prestec',
+        'data_devolucion',
         'lloc_devolucion',
         'preu_dia',
         'prestec_retorn_disponible',

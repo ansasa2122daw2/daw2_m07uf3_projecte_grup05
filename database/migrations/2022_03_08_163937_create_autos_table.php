@@ -19,7 +19,7 @@ class CreateAutosTable extends Migration
             $table->string('marca');
             $table->string('model');
             $table->string('color');
-            $table->string('tipus_combustible');
+            $table->enum('tipus_combustible',["gasolina", "diesel", "electric"]);
             $table->integer('num_bastidor');
             $table->integer('num_plazas');
             $table->integer('num_portes');

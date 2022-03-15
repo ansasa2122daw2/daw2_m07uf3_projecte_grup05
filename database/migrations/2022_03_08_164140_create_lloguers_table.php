@@ -18,12 +18,12 @@ class CreateLloguersTable extends Migration
             $table->foreign('dni_client')->references('dni_client')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('matricula_auto')->references('matricula_auto')->on('autos')->onDelete('cascade')->onUpdate('cascade');
             $table->string('matricula_auto');
-            $table->string('datos_prestec');
-            $table->string('datos_devolucion');
+            $table->date('data_prestec');
+            $table->date('data_devolucion');
             $table->string('lloc_devolucion');
             $table->integer('preu_dia');
-            $table->string('prestec_retorn_disponible');
-            $table->string('tipus_asseguranca');
+            $table->boolean('prestec_retorn_disponible');
+            $table->enum('tipus_asseguranca',["Franquicia_1000Euros", "Franquicia_500Euros", "Sense_franquicia"]);
             $table->primary(['dni_client','matricula_auto']);
         });
     }

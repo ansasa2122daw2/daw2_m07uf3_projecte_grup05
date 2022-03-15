@@ -16,11 +16,11 @@ class CreateUsuarisTable extends Migration
         Schema::create('usuaris', function (Blueprint $table) {
             $table->string('nom');
             $table->string('cognom');
-            $table->string('email');
+            $table->string('email')->primary();
             $table->string('contrasenya');
-            $table->string('tipus');
-            $table->string('hora_entrada');
-            $table->string('hora_sortida');
+            $table->enum('tipus',["treballador","cap_departament"]);
+            $table->date('hora_entrada');
+            $table->date('hora_sortida');
         });
     }
 
