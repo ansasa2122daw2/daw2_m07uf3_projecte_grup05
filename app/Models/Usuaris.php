@@ -10,8 +10,12 @@ class Usuaris extends Model
     use HasFactory;
     protected $fillable = [
         'nom',
+        'cognom',
         'email',
-        'contrasenya'
+        'contrasenya',
+        'tipus',
+        'hora_entrada',
+        'hora_sortida'
     ];
 
     protected $hidden = [

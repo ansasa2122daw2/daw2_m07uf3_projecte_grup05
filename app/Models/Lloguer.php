@@ -9,7 +9,13 @@ class Lloguer extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'dni_client',
+        'matricula_auto',
         'datos_prestec',
         'datos_devolucion',
+        'lloc_devolucion',
+        'preu_dia',
+        'prestec_retorn_disponible',
+        'tipus_asseguranca',
     ];
 }

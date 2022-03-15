@@ -9,8 +9,14 @@ class Autos extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'matricula_auto',
         'marca',
         'modelo',
-        'matricula_auto',
+        'color',
+        'tipus_combustible',
+        'num_bastidor',
+        'num_plazas',
+        'num_portes',
+        'grandaria_maleter',
     ];
 }
