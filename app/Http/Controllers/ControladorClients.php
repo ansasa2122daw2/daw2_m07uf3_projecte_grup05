@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Clients;
+
 
 class ControladorClients extends Controller
 {
@@ -13,7 +15,8 @@ class ControladorClients extends Controller
      */
     public function index()
     {
-        //
+        $clients = Clients::all();
+        return view('welcome', compact('clients'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ControladorClients extends Controller
      */
     public function create()
     {
-        //
+        return view('welcome');
     }
 
     /**
@@ -34,7 +37,24 @@ class ControladorClients extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nouClients = $request->validate([
+            'dni_client' => 'required|max:255',
+            'nom' => 'required|max:255',
+            'cognoms' => 'required|max:255',
+            'num_targeta' => 'required|max:255',
+            'edat'=> 'required|max:255',
+            'telefon'=> 'required|max:255',
+            'tipus_targeta'=> 'required|max:255',
+            'adreca'=> 'required|max:255',
+            'ciutat'=> 'required|max:255',
+            'pais'=> 'required|max:255',
+            'num_permis_conduccio'=> 'required|max:255',
+            'email'=> 'required|max:255',
+            'punts_permis'=> 'required|max:255',
+        ]);
+        $clients = Clients::create($nouClients);
+
+        return redirect('/proyectoCoche1')->with('completed', 'Cliente creado!');
     }
 
     /**
@@ -56,7 +76,9 @@ class ControladorClients extends Controller
      */
     public function edit($id)
     {
-        //
+        $clients = Clients::findOrFail($id);
+        return view('actualitza', compact('clients'));
+
     }
 
     /**
@@ -68,7 +90,24 @@ class ControladorClients extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dades = $request->validate([
+            'dni_client' => 'required|max:255',
+            'nom' => 'required|max:255',
+            'cognoms' => 'required|max:255',
+            'num_targeta' => 'required|max:255',
+            'edat'=> 'required|max:255',
+            'telefon'=> 'required|max:255',
+            'tipus_targeta'=> 'required|max:255',
+            'adreca'=> 'required|max:255',
+            'ciutat'=> 'required|max:255',
+            'pais'=> 'required|max:255',
+            'num_permis_conduccio'=> 'required|max:255',
+            'email'=> 'required|max:255',
+            'punts_permis'=> 'required|max:255',
+        ]);
+
+        Clients::whereId($id)->update($dades);
+        return redirect('/proyectoCoche1')->with('completed', 'Cliente actualizado');
     }
 
     /**
@@ -79,6 +118,8 @@ class ControladorClients extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clients = Clients::findOrFail($id);
+        $clients->delete();
+        return redirect('/proyectoCoche1')->with('completed', 'Cliente borrado');
     }
 }
