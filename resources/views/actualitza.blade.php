@@ -2,26 +2,27 @@
 
 @section('content')
 
-<h1>Aplicació d'administració de clients</h1>
-<div class="card mt-5">
-  <div class="card-header">
-    Afegeix un nou client
-  </div>
 
-  <div class="card-body">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div>
-    @endif
-      <form method="post" action="{{ route('clients.store') }}">
-          <div class="form-group">
-              @csrf
-              <label for="nom">Nom</label>
+<div class="card mt-5">
+    <div class="card-header">
+        Actualització de dades
+    </div>
+
+    <div class="card-body">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <form method="post" action="{{ route('clients.update', $clients->id) }}">
+            <div class="form-group">
+                @csrf
+                @method('PATCH')
+                <label for="nom">Nom</label>
               <input type="text" class="form-control" name="nom"/>
           </div>
           <div class="form-group">
@@ -58,7 +59,6 @@
                   <option value="">Selecciona</option>
                   <option value="debit">Débit</option>
                   <option value="credit">Credit</option>
-                </select>
           </div>
           <div class="form-group">
               <label for="num_permis_conduccio">Número permís conducció</label>
@@ -76,10 +76,10 @@
               <label for="dni_client">DNI</label>
               <input type="text" class="form-control" name="dni_client"/>
           </div>
-          
-          <button type="submit" class="btn btn-block btn-primary">Envia</button>
-      </form>
-  </div>
+
+            <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
+        </form>
+    </div>
 </div>
-<br><a href="{{ url('clients') }}">Accés directe a la Llista de clients</a>
+<br><a href="{{ url('clients') }}">Accés directe a la Llista de clients</a
 @endsection

@@ -8,6 +8,7 @@ use App\Models\Clients;
 
 class ControladorClients extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +55,7 @@ class ControladorClients extends Controller
         ]);
         $clients = Clients::create($nouClients);
 
-        return redirect('/proyectoCoche1')->with('completed', 'Cliente creado!');
+        return redirect('/index')->with('completed', 'Cliente creado!');
     }
 
     /**

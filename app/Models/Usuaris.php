@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuaris extends Model
 {
     use HasFactory;
+    public $timestamps = false;//Para que no introduzca campos de update at
     protected $fillable = [
         'nom',
         'cognom',
