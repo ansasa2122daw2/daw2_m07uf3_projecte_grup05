@@ -12,7 +12,6 @@
   <table class="table">
     <thead>
         <tr class="table-primary">
-          <td># ID</td>
           <td>Nom</td>
           <td>Email</td>
           <td>Telèfon</td>
@@ -30,9 +29,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($clients as $cli)
+        @foreach($clients ?? '' as $cli)
         <tr>
-            <td>{{$cli->id}}</td>
             <td>{{$cli->nom}}</td>
             <td>{{$cli->email}}</td>
             <td>{{$cli->telefon}}</td>
@@ -49,8 +47,8 @@
 
             
             <td class="text-left">
-                <a href="{{ route('clients.edit', $cli->id)}}" class="btn btn-success btn-sm">Edita</a>
-                <form action="{{ route('clients.destroy', $cli->id)}}" method="post" style="display: inline-block">
+                <a href="{{ route('clients.edit', $cli->dni_client)}}" class="btn btn-success btn-sm">Edita</a>
+                <form action="{{ route('clients.destroy', $cli->dni_client)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>

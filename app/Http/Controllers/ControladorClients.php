@@ -17,7 +17,7 @@ class ControladorClients extends Controller
     public function index()
     {
         $clients = Clients::all();
-        return view('welcome', compact('clients'));
+        return view('index', compact('clients'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ControladorClients extends Controller
      */
     public function create()
     {
-        return view('welcome');
+        return view('crearclients');
     }
 
     /**
