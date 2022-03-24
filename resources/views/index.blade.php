@@ -48,7 +48,7 @@
             
             <td class="text-left">
                 <a href="{{ route('clients.edit', $cli->dni_client)}}" class="btn btn-success btn-sm">Edita</a>
-                <form action="{{ route('clients.destroy', $cli->dni_client)}}" method="post" style="display: inline-block">
+                <form action="{{ route('clients.destroy', $cli->dni_client)}}" method="POST" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>

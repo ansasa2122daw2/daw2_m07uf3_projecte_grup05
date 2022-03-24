@@ -1,8 +1,6 @@
 @extends('disseny')
 
 @section('content')
-
-
 <div class="card mt-5">
     <div class="card-header">
         Actualització de dades
@@ -18,7 +16,7 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="{{ route('clients.update', $clients->dni_client) }}">
+        <form method="POST" action="{{ route('clients.update', $clients ?? ''->dni_client) }}">
             <div class="form-group">
                 @csrf
                 @method('PATCH')

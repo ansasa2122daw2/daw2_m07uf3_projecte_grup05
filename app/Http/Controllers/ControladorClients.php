@@ -64,7 +64,7 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($dni_client)
+    public function show($id)
     {
         //
     }
@@ -108,7 +108,7 @@ class ControladorClients extends Controller
         ]);
 
         Clients::whereId($dni_client)->update($dades);
-        return redirect('/actualitza')->with('completed', 'Cliente actualizado');
+        return redirect('/clients')->with('completed', 'Cliente actualizado');
     }
 
     /**
@@ -117,10 +117,10 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($dni_client)
     {
-        $clients = Clients::findOrFail($id);
+        $clients = Clients::findOrFail($dni_client);
         $clients->delete();
-        return redirect('/proyectoCoche1')->with('completed', 'Cliente borrado');
+        return redirect('/clients')->with('completed', 'Cliente borrado');
     }
 }
