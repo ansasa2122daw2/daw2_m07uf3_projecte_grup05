@@ -36,3 +36,33 @@ Route::get('/actualitza', function () {
 Route::resource('clients', ControladorClients::class);
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
 
+Route::get('/crearautos', function () {
+    return view('crearautos');
+});
+
+Route::get('/indexauto', function () {
+    return view('indexauto');
+});
+
+Route::resource('autos', ControladorAutos::class);
+
+Route::get('/crearlloguer', function () {
+    return view('crearlloguer');
+});
+
+Route::get('/indexlloguer', function () {
+    return view('indexlloguer');
+});
+
+Route::resource('lloguers', ControladorLloguers::class);
+
+Route::get('/crearusuaris', function () {
+    return view('crearusuaris');
+});
+
+Route::get('/indexusuaris', function () {
+    return view('indexusuaris');
+});
+
+Route::resource('usuaris', ControladorLloguers::class);
+

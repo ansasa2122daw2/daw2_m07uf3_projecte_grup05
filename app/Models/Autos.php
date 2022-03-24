@@ -9,10 +9,11 @@ class Autos extends Model
 {
     use HasFactory;
     public $timestamps = false;//Para que no introduzca campos de update at
+    protected $primaryKey = 'matricula_auto';
     protected $fillable = [
         'matricula_auto',
         'marca',
-        'modelo',
+        'model',
         'color',
         'tipus_combustible',
         'num_bastidor',

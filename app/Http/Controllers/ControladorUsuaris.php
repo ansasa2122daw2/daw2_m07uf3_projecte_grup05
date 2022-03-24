@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuaris;
 
 class ControladorUsuaris extends Controller
 {
@@ -13,7 +14,8 @@ class ControladorUsuaris extends Controller
      */
     public function index()
     {
-        //
+        $usuaris = Usuaris::all();
+        return view('indexusuaris', compact('usuaris'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ControladorUsuaris extends Controller
      */
     public function create()
     {
-        //
+        return view('crearusuaris');
     }
 
     /**
@@ -34,8 +36,21 @@ class ControladorUsuaris extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nouUsuari = $request->validate([
+            'nom' => 'required|max:255',
+            'cognom' => 'required|max:255',
+            'email' => 'required|max:255',
+            'contrasenya' => 'required|max:255',
+            'tipus'=> 'required|max:255',
+            'hora_entrada'=> 'required|max:255',
+            'hora_sortida'=> 'required|max:255',
+        
+        ]);
+        $usuaris = Usuaris::create($nouUsuari);
+
+        return redirect('/indexusuaris')->with('completed', 'Usuari creado!');
     }
+
 
     /**
      * Display the specified resource.

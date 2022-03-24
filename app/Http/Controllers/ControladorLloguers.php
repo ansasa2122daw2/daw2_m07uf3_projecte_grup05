@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lloguer;
 
 class ControladorLloguers extends Controller
 {
@@ -13,7 +14,8 @@ class ControladorLloguers extends Controller
      */
     public function index()
     {
-        //
+        $lloguers = Lloguer::all();
+        return view('indexlloguer', compact('lloguers'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ControladorLloguers extends Controller
      */
     public function create()
     {
-        //
+        return view('crearlloguer');
     }
 
     /**
@@ -34,7 +36,20 @@ class ControladorLloguers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nouLloguer = $request->validate([
+            'dni_client' => 'required|max:255',
+            'matricula_auto' => 'required|max:255',
+            'data_prestec' => 'required|max:255',
+            'data_devolucion' => 'required|max:255',
+            'lloc_devolucion'=> 'required|max:255',
+            'preu_dia'=> 'required|max:255',
+            'prestec_retorn_disponible'=> 'required|max:255',
+            'tipus_asseguranca'=> 'required|max:255',
+        
+        ]);
+        $lloguers = Lloguer::create($nouLloguer);
+
+        return redirect('/indexlloguer')->with('completed', 'Lloguer creado!');
     }
 
     /**

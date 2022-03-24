@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Autos;
 
 class ControladorAutos extends Controller
 {
@@ -13,7 +14,8 @@ class ControladorAutos extends Controller
      */
     public function index()
     {
-        //
+        $autos = Autos::all();
+        return view('indexauto', compact('autos'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ControladorAutos extends Controller
      */
     public function create()
     {
-        //
+        return view('crearauto');
     }
 
     /**
@@ -34,7 +36,20 @@ class ControladorAutos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nouAutos = $request->validate([
+            'matricula_auto' => 'required|max:255',
+            'marca' => 'required|max:255',
+            'model' => 'required|max:255',
+            'color' => 'required|max:255',
+            'tipus_combustible'=> 'required|max:255',
+            'num_bastidor'=> 'required|max:255',
+            'num_plazas'=> 'required|max:255',
+            'num_portes'=> 'required|max:255',
+            'grandaria_maleter'=> 'required|max:255',
+        ]);
+        $autos = Autos::create($nouAutos);
+
+        return redirect('/indexauto')->with('completed', 'Auto creado!');
     }
 
     /**
@@ -43,7 +58,7 @@ class ControladorAutos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($matricula_auto)
     {
         //
     }
@@ -54,9 +69,10 @@ class ControladorAutos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($matricula_auto)
     {
-        //
+        $autos = Autos::findOrFail($matricula_auto);
+        return view('actualitza', compact('autos'));
     }
 
     /**
@@ -66,7 +82,7 @@ class ControladorAutos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $matricula_auto)
     {
         //
     }
@@ -77,7 +93,7 @@ class ControladorAutos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($matricula_auto)
     {
         //
     }
