@@ -89,7 +89,7 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $dni_client)
     {
         $dades = $request->validate([
             'dni_client' => 'required|max:255',
@@ -108,7 +108,7 @@ class ControladorClients extends Controller
         ]);
 
         Clients::whereId($id)->update($dades);
-        return redirect('/proyectoCoche1')->with('completed', 'Cliente actualizado');
+        return redirect('/actualitza')->with('completed', 'Cliente actualizado');
     }
 
     /**

@@ -25,6 +25,14 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::get('/actualitza', function () {
+    return view('actualitza');
+});
+
 Route::resource('clients', ControladorClients::class);
 Route::get('/autentica','ControladorLogin@autentica')->name('autenticacio');
 
