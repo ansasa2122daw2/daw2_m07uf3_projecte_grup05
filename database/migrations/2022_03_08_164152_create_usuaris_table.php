@@ -19,8 +19,8 @@ class CreateUsuarisTable extends Migration
             $table->string('email')->primary();
             $table->string('contrasenya');
             $table->enum('tipus',["treballador","cap_departament"]);
-            $table->date('hora_entrada');
-            $table->date('hora_sortida');
+            $table->date('hora_entrada')->nullable()->change();
+            $table->date('hora_sortida')->nullable()->change();
         });
     }
 

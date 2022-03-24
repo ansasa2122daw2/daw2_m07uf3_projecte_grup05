@@ -39,15 +39,11 @@
           </div>
           <div class="form-group">
               <label for="tipus">Tipus</label>
-              <input type="text" class="form-control" name="tipus"/>
-          </div>
-          <div class="form-group">
-              <label for="hora_entrada">Hora entrada</label>
-              <input type="date" class="form-control" name="hora_entrada"/>
-          </div>
-          <div class="form-group">
-              <label for="hora_sortida">Hora sortida</label>
-              <input type="date" class="form-control" name="hora_sortida"/>
+              <select name="tipus">
+                  <option value="">Selecciona</option>
+                  <option value="treballador">treballador</option>
+                  <option value="cap_departament">Cap departament</option>
+                </select>
           </div>
 
           <button type="submit" class="btn btn-block btn-primary">Envia</button>

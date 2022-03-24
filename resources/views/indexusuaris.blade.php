@@ -29,8 +29,6 @@
             <td>{{$cli->email}}</td>
             <td>{{$cli->contrasenya}}</td>
             <td>{{$cli->tipus}}</td>
-            <td>{{$cli->hora_entrada}}</td>
-            <td>{{$cli->hora_sortida}}</td>
 
             <td class="text-left">
                 <a href="{{ route('usuaris.edit', $cli->email)}}" class="btn btn-success btn-sm">Edita</a>
