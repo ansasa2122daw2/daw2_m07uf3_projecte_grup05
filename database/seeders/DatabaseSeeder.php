@@ -23,8 +23,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'felipezromero@gmail.com',
             'contrasenya' => 'password',
             'tipus' => 'cap_departament',
-            'hora_entrada' => '2022-03-22 17:39:00',
-            'hora_sortida' => '2022-03-22 17:39:00'
         ]);
     }
 }

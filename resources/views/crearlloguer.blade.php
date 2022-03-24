@@ -46,14 +46,18 @@
           </div>
           <div class="form-group">
               <label for="prestec_retorn_disponible">Prestec retorn disponible</label>
-              <input type="checkbox" class="form-control" name="prestec_retorn_disponible"/>Sí
-              <input type="checkbox" class="form-control" name="prestec_retorn_disponible"/>No
+              <input type="radio" class="form-control" name="prestec_retorn_disponible"/>Sí
+              <input type="radio" class="form-control" name="prestec_retorn_disponible"/>No
           </div>
           <div class="form-group">
               <label for="tipus_asseguranca">Tipus asegurança</label>
-              <input type="text" class="form-control" name="tipus_asseguranca"/>
+              <select name="tipus_asseguranca">
+                  <option value="">Selecciona</option>
+                  <option value="Franquicia_1000Euros">Franquicia 1000 euros</option>
+                  <option value="Franquicia_500Euros">Franquicia 500 euros</option>
+                  <option value="Sense_franquicia">Sense franquicia</option>
+                </select>
           </div>
-
           
           <button type="submit" class="btn btn-block btn-primary">Envia</button>
       </form>
