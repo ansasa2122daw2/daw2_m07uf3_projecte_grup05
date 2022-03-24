@@ -64,5 +64,5 @@ Route::get('/indexusuaris', function () {
     return view('indexusuaris');
 });
 
-Route::resource('usuaris', ControladorLloguers::class);
+Route::resource('usuaris', ControladorUsuaris::class);
 

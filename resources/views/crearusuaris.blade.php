@@ -50,5 +50,5 @@
       </form>
   </div>
 </div>
-<br><a href="{{ url('usuaris') }}">Accés directe a la Llista de autos</a>
+<br><a href="{{ url('usuaris') }}">Accés directe a la Llista de usuaris</a>
 @endsection

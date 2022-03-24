@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Llista de autos</h1>
+<h1>Llista de usuaris</h1>
 <div class="mt-5">
   @if(session()->get('success'))
     <div class="alert alert-success">
