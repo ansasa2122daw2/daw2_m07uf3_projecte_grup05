@@ -64,7 +64,7 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($dni_client)
     {
         //
     }
@@ -75,9 +75,9 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($dni_client)
     {
-        $clients = Clients::findOrFail($id);
+        $clients = Clients::findOrFail($dni_client);
         return view('actualitza', compact('clients'));
 
     }
@@ -107,7 +107,7 @@ class ControladorClients extends Controller
             'punts_permis'=> 'required|max:255',
         ]);
 
-        Clients::whereId($id)->update($dades);
+        Clients::whereId($dni_client)->update($dades);
         return redirect('/actualitza')->with('completed', 'Cliente actualizado');
     }
 

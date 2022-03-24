@@ -59,6 +59,7 @@
                   <option value="">Selecciona</option>
                   <option value="debit">Débit</option>
                   <option value="credit">Credit</option>
+                </select>
           </div>
           <div class="form-group">
               <label for="num_permis_conduccio">Número permís conducció</label>
