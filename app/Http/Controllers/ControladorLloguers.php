@@ -15,7 +15,7 @@ class ControladorLloguers extends Controller
     public function index()
     {
         $lloguers = Lloguer::all();
-        return view('indexlloguer', compact('lloguers'));
+        return view('/lloguers/indexlloguer', compact('lloguers'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ControladorLloguers extends Controller
      */
     public function create()
     {
-        return view('crearlloguer');
+        return view('/lloguers/crearlloguer');
     }
 
     /**
@@ -49,7 +49,7 @@ class ControladorLloguers extends Controller
         ]);
         $lloguers = Lloguer::create($nouLloguer);
 
-        return redirect('/indexlloguer')->with('completed', 'Lloguer creado!');
+        return redirect('/lloguers')->with('completed', 'Lloguer creado!');
     }
 
     /**

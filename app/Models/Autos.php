@@ -9,6 +9,7 @@ class Autos extends Model
 {
     use HasFactory;
     public $timestamps = false;//Para que no introduzca campos de update at
+    public $incrementing = false;
     protected $primaryKey = 'matricula_auto';
     protected $fillable = [
         'matricula_auto',

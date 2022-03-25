@@ -29,6 +29,7 @@
         </tr>
     </thead>
     <tbody>
+    @if (is_array($clients ?? '') || is_object($clients ?? ''))
         @foreach($clients ?? '' as $cli)
         <tr>
             <td>{{$cli->nom}}</td>
@@ -56,8 +57,14 @@
             </td>
         </tr>
         @endforeach
+        @else
+          {{ Redirect::to('/clients') }}
+
+    @endif
     </tbody>
   </table>
 <div>
 <br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació d'empleats</a>
+<br>
+<br><a href="{{ url('welcome') }}">Vista principal</a>
 @endsection

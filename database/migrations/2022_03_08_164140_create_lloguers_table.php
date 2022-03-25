@@ -22,7 +22,7 @@ class CreateLloguersTable extends Migration
             $table->date('data_devolucion');
             $table->string('lloc_devolucion');
             $table->integer('preu_dia');
-            $table->boolean('prestec_retorn_disponible');
+            $table->string('prestec_retorn_disponible');
             $table->enum('tipus_asseguranca',["Franquicia_1000Euros", "Franquicia_500Euros", "Sense_franquicia"]);
             $table->primary(['dni_client','matricula_auto']);
         });

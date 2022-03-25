@@ -48,4 +48,6 @@
   </table>
 <div>
 <br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació d'autos</a>
+<br>
+<br><a href="{{ url('welcome') }}">Vista principal</a>
 @endsection

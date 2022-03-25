@@ -25,7 +25,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($autos as $cli)
+    @if (is_array($autos ?? '') || is_object($autos ?? ''))
+        @foreach($autos ?? '' ?? '' as $cli)
         <tr>
             <td>{{$cli->matricula_auto}}</td>
             <td>{{$cli->marca}}</td>
@@ -47,8 +48,14 @@
             </td>
         </tr>
         @endforeach
+        @else
+          {{ Redirect::to('/autos') }}
+
+    @endif
     </tbody>
   </table>
 <div>
 <br><a href="{{ url('autos/create') }}">Accés directe a la vista de creació d'autos</a>
+<br>
+<br><a href="{{ url('welcome') }}">Vista principal</a>
 @endsection

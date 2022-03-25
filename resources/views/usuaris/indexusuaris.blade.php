@@ -17,12 +17,11 @@
           <td>Email</td>
           <td>Contrasenya</td>
           <td>Tipus</td>
-          <td>Hora entrada</td>
-          <td>Hora sortida</td>
+          <td>Controls</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($usuaris as $cli)
+        @foreach($usuaris ?? '' as $cli)
         <tr>
             <td>{{$cli->nom}}</td>
             <td>{{$cli->cognom}}</td>
@@ -43,5 +42,7 @@
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('usuaris/create') }}">Accés directe a la vista de creació d'autos</a>
+<br><a href="{{ url('usuaris/create') }}">Accés directe a la vista de creació d'usuaris</a>
+<br>
+<br><a href="{{ url('welcome') }}">Vista principal</a>
 @endsection

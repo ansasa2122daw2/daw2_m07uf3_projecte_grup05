@@ -15,7 +15,7 @@ class ControladorAutos extends Controller
     public function index()
     {
         $autos = Autos::all();
-        return view('indexauto', compact('autos'));
+        return view('/autos/indexauto', compact('autos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ControladorAutos extends Controller
      */
     public function create()
     {
-        return view('crearauto');
+        return view('/autos/crearautos');
     }
 
     /**
@@ -49,7 +49,7 @@ class ControladorAutos extends Controller
         ]);
         $autos = Autos::create($nouAutos);
 
-        return redirect('/indexauto')->with('completed', 'Auto creado!');
+        return redirect('/autos')->with('completed', 'Auto creado!');
     }
 
     /**
@@ -60,7 +60,7 @@ class ControladorAutos extends Controller
      */
     public function show($matricula_auto)
     {
-        //
+        return view("autos/indexauto");
     }
 
     /**
@@ -72,7 +72,7 @@ class ControladorAutos extends Controller
     public function edit($matricula_auto)
     {
         $autos = Autos::findOrFail($matricula_auto);
-        return view('actualitza', compact('autos'));
+        return view('/autos/actualitzaautos', compact('autos')); //FALTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     }
 
     /**
@@ -84,7 +84,20 @@ class ControladorAutos extends Controller
      */
     public function update(Request $request, $matricula_auto)
     {
-        //
+        $dades = $request->validate([
+            'matricula_auto' => 'required|max:255',
+            'marca' => 'required|max:255',
+            'model' => 'required|max:255',
+            'color' => 'required|max:255',
+            'tipus_combustible'=> 'required|max:255',
+            'num_bastidor'=> 'required|max:255',
+            'num_plazas'=> 'required|max:255',
+            'num_portes'=> 'required|max:255',
+            'grandaria_maleter'=> 'required|max:255',
+        ]);
+
+        Autos::wherematricula_auto($matricula_auto)->update($dades);
+        return redirect('/autos')->with('completed', 'Auto actualizado');
     }
 
     /**
@@ -95,6 +108,8 @@ class ControladorAutos extends Controller
      */
     public function destroy($matricula_auto)
     {
-        //
+        $autos = Autos::findOrFail($matricula_auto);
+        $autos->delete();
+        return redirect('/autos')->with('completed', 'Auto borrado');
     }
 }

@@ -15,7 +15,7 @@ class ControladorUsuaris extends Controller
     public function index()
     {
         $usuaris = Usuaris::all();
-        return view('indexusuaris', compact('usuaris'));
+        return view('/usuaris/indexusuaris', compact('usuaris'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ControladorUsuaris extends Controller
      */
     public function create()
     {
-        return view('crearusuaris');
+        return view('/usuaris/crearusuaris');
     }
 
     /**
@@ -46,7 +46,7 @@ class ControladorUsuaris extends Controller
         ]);
         $usuaris = Usuaris::create($nouUsuari);
 
-        return redirect('/indexusuaris')->with('completed', 'Usuari creado!');
+        return redirect('/usuaris')->with('completed', 'Usuari creado!');
     }
 
 
@@ -69,7 +69,8 @@ class ControladorUsuaris extends Controller
      */
     public function edit($email)
     {
-        //
+        $usuaris = Usuaris::findOrFail($email);
+        return view('/usuaris/actualitzausuaris', compact('usuaris'));
     }
 
     /**
@@ -81,7 +82,17 @@ class ControladorUsuaris extends Controller
      */
     public function update(Request $request, $email)
     {
-        //
+        $dades = $request->validate([
+            'nom' => 'required|max:255',
+            'cognom' => 'required|max:255',
+            'email'=> 'required|max:255',
+            'contrasenya'=> 'required|max:255',
+            'tipus'=> 'required|max:255',
+        ]);
+
+        Usuaris::whereemail($email)->update($dades);
+        return redirect('/usuaris')->with('completed', 'Usuari actualizado');
+
     }
 
     /**
@@ -92,6 +103,8 @@ class ControladorUsuaris extends Controller
      */
     public function destroy($email)
     {
-        //
+        $usuaris = Usuaris::findOrFail($email);
+        $usuaris->delete();
+        return redirect('/usuaris')->with('completed', 'Usuari borrado');
     }
 }

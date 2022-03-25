@@ -9,6 +9,8 @@ class Usuaris extends Model
 {
     use HasFactory;
     public $timestamps = false;//Para que no introduzca campos de update at
+    public $incrementing = false;
+    protected $primaryKey = 'email';
     protected $fillable = [
         'nom',
         'cognom',

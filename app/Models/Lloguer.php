@@ -9,6 +9,7 @@ class Lloguer extends Model
 {
     use HasFactory;
     public $timestamps = false;//Para que no introduzca campos de update at
+    public $incrementing = false;
     protected $fillable = [
         'dni_client',
         'matricula_auto',

@@ -46,8 +46,7 @@
           </div>
           <div class="form-group">
               <label for="prestec_retorn_disponible">Prestec retorn disponible</label>
-              <input type="radio" class="form-control" name="prestec_retorn_disponible"/>Sí
-              <input type="radio" class="form-control" name="prestec_retorn_disponible"/>No
+              <input type="text" class="form-control" name="prestec_retorn_disponible"/>
           </div>
           <div class="form-group">
               <label for="tipus_asseguranca">Tipus asegurança</label>

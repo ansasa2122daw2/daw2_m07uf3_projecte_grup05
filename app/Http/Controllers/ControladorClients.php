@@ -17,7 +17,7 @@ class ControladorClients extends Controller
     public function index()
     {
         $clients = Clients::all();
-        return view('index', compact('clients'));
+        return view('/clients/index', compact('clients'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ControladorClients extends Controller
      */
     public function create()
     {
-        return view('crearclients');
+        return view('/clients/crearclients');
     }
 
     /**
@@ -55,7 +55,7 @@ class ControladorClients extends Controller
         ]);
         $clients = Clients::create($nouClients);
 
-        return redirect('/index')->with('completed', 'Cliente creado!');
+        return redirect('/clients')->with('completed', 'Cliente creado!');
     }
 
     /**
@@ -64,9 +64,9 @@ class ControladorClients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($dni_client)
     {
-        //
+        return view("/clients/index");
     }
 
     /**
@@ -78,7 +78,7 @@ class ControladorClients extends Controller
     public function edit($dni_client)
     {
         $clients = Clients::findOrFail($dni_client);
-        return view('actualitza', compact('clients'));
+        return view('/clients/actualitza', compact('clients'));
 
     }
 
@@ -107,7 +107,7 @@ class ControladorClients extends Controller
             'punts_permis'=> 'required|max:255',
         ]);
 
-        Clients::whereId($dni_client)->update($dades);
+        Clients::wheredni_clients($dni_client)->update($dades);
         return redirect('/clients')->with('completed', 'Cliente actualizado');
     }
 

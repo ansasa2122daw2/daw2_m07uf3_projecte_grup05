@@ -50,7 +50,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('crearclients') }}" class="underline text-gray-900 dark:text-white">Afegeix clients</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('clients/create') }}" class="underline text-gray-900 dark:text-white">Afegeix clients</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -80,7 +80,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('crearautos') }}" class="underline text-gray-900 dark:text-white">Afegeix automòbils</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('autos/create') }}" class="underline text-gray-900 dark:text-white">Afegeix automòbils</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -110,7 +110,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('crearlloguer') }}" class="underline text-gray-900 dark:text-white">Afegeix lloguer</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('lloguers/create') }}" class="underline text-gray-900 dark:text-white">Afegeix lloguer</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -140,7 +140,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('crearusuaris') }}" class="underline text-gray-900 dark:text-white">Afegeix usuaris</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('usuaris/create') }}" class="underline text-gray-900 dark:text-white">Afegeix usuaris</a></div>
                             </div>
 
                             <div class="ml-12">
