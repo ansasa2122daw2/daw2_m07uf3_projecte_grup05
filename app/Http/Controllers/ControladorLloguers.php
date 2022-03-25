@@ -58,9 +58,9 @@ class ControladorLloguers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($dni_client)
     {
-        //
+        return view("/clients/index");
     }
 
     /**
@@ -69,9 +69,11 @@ class ControladorLloguers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($dni_client)
     {
-        //
+        $lloguers = Lloguer::findOrFail($dni_client);
+        return view('/lloguers/actualitzalloguers', compact('lloguers'));
+
     }
 
     /**
@@ -81,9 +83,21 @@ class ControladorLloguers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $dni_client)
     {
-        //
+        $dades = $request->validate([
+            'dni_client' => 'required|max:255',
+            'matricula_auto' => 'required|max:255',
+            'data_prestec' => 'required|max:255',
+            'data_devolucion' => 'required|max:255',
+            'lloc_devolucion'=> 'required|max:255',
+            'preu_dia'=> 'required|max:255',
+            'prestec_retorn_disponible'=> 'required|max:255',
+            'tipus_asseguranca'=> 'required|max:255',
+        ]);
+
+        Lloguers::wheredni_clients($dni_client)->update($dades);
+        return redirect('/lloguers')->with('completed', 'Lloguer actualizado');
     }
 
     /**
@@ -92,8 +106,10 @@ class ControladorLloguers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($dni_client)
     {
-        //
+        $lloguers = Lloguer::findOrFail($dni_client);
+        $lloguers->delete();
+        return redirect('/lloguers')->with('completed', 'Lloguer borrado');
     }
 }

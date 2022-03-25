@@ -9,6 +9,7 @@ class Lloguer extends Model
 {
     use HasFactory;
     public $timestamps = false;//Para que no introduzca campos de update at
+    protected $primaryKey = 'dni_client';
     public $incrementing = false;
     protected $fillable = [
         'dni_client',

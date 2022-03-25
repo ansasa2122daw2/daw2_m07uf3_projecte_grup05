@@ -14,6 +14,7 @@
         <tr class="table-primary">
           <td>DNI client</td>
           <td>Matricula</td>
+          <td>Data prestec</td>
           <td>Data devolución</td>
           <td>Lloc devolución</td>
           <td>Preu dia</td>
@@ -23,6 +24,7 @@
         </tr>
     </thead>
     <tbody>
+    @if (is_array($lloguers ?? '') || is_object($lloguers ?? ''))
         @foreach($lloguers as $cli)
         <tr>
             <td>{{$cli->dni_client}}</td>
@@ -44,10 +46,14 @@
             </td>
         </tr>
         @endforeach
+        @else
+          {{ Redirect::to('/lloguers') }}
+
+    @endif
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació d'autos</a>
+<br><a href="{{ url('lloguers/create') }}">Accés directe a la vista de creació de lloguers</a>
 <br>
 <br><a href="{{ url('welcome') }}">Vista principal</a>
 @endsection
